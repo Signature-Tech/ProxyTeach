@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeWrapper";
+import SessionWrapper from "@/components/SessionWrapper";
 
 const poppins = Poppins({
   weight : "600",
@@ -15,14 +16,14 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body className={poppins.className}>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          {children}
+          <SessionWrapper>{children}</SessionWrapper>
         </ThemeProvider>
       </body>
     </html>

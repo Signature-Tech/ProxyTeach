@@ -8,10 +8,12 @@ import { Button } from "@/components/ui/button"
 import Image from 'next/image'
 import logo from '@/images/logo.png'
 import { ModeToggle } from './Toggle'
+import { useSession } from 'next-auth/react'
 
-export default function NavbarComponent(session: { user: { name: string | number | bigint | boolean | React.ReactElement | React.ReactPortal | null | undefined } }) {
+export default function NavbarComponent() {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const { data: session } = useSession();
 
     return (
         <nav className="shadow-xl p-5">

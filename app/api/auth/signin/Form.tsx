@@ -36,7 +36,7 @@ export default function Form() {
                         <div className="grid gap-2 mb-6">
                             <Label htmlFor="email">Email</Label>
                             <Input
-                                id="email"
+                                name="email"
                                 type="email"
                                 placeholder="example@example.com"
                                 required
@@ -46,7 +46,7 @@ export default function Form() {
                             <div className="flex items-center">
                                 <Label htmlFor="password">Password</Label>
                             </div>
-                            <Input id="password" type="password" required />
+                            <Input name="password" type="password" required />
                         </div>
                         <Button type="submit" className="w-full">
                             Login

@@ -9,7 +9,7 @@ import Image from 'next/image'
 import logo from '@/images/logo.png'
 import { ModeToggle } from './Toggle'
 
-export default function NavbarComponent(session: any) {
+export default function NavbarComponent(session: { user: { name: string | number | bigint | boolean | React.ReactElement | React.ReactPortal | null | undefined } }) {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
 

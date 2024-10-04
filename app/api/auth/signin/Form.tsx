@@ -3,7 +3,6 @@
 import Image from "next/image"
 import bg from "@/images/bg.jpg"
 import Semc from "@/images/semc_logo.png"
-import logo from "@/images/logo.png"
 
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"

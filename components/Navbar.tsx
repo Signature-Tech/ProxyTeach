@@ -26,7 +26,7 @@ export default function NavbarComponent() {
                         <div className="hidden md:block">
                             <div className=" flex justify-between text-2xl font-semibold">
                                 <Image src={logo} alt="logo" width={80} height={80} />
-                                {session?.user ? <h1 className='pl-5 pt-6'>{session.user.name}</h1> : <h1 className='pl-5 pt-6'>ProxyTeach</h1>}
+                                {session?.user ? <h1 className='pl-5 pt-6'>{session.user.name}</h1> : <h1 className='pl-5 pt-6'>ProxyTeach Hub</h1>}
                             </div>
                         </div>
                         <div className="hidden md:flex items-center ml-[300px]">

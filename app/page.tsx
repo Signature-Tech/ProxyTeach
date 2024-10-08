@@ -1,6 +1,6 @@
 import { integer, pgTable, text } from "drizzle-orm/pg-core";
 import NavbarComponent from "@/components/Navbar";
-import Teacher from "@/components/CardLayout";
+import Teacher from "@/components/TeacherLayout";
 import logo from "@/images/logo.png";
 import { db } from "@/lib/db";
 import { auth } from "@/auth";
@@ -18,7 +18,11 @@ export default async function Home() {
 
   const response = await db.select().from(teachers);
 
-  if (session) {
+  if (session?.user?.email === 'admin@gmail.com') {
+    redirect('/control-hub')
+  }
+
+  else if (session?.user) {
     return (
       <main>
         <NavbarComponent />

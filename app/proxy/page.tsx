@@ -2,11 +2,9 @@ import NavbarComponent from "@/components/Navbar";
 import ProxyLayout from "@/components/ProxyLayout";
 import { db } from "@/lib/db";
 import { integer, pgTable, text } from "drizzle-orm/pg-core";
-import { and, eq, ne } from "drizzle-orm";
+import { eq, ne } from "drizzle-orm";
 
 async function findProxy(id: string, day: string) {
-  const CanNotBeProxy = []
-
   const teachers = pgTable('teachers', {
     id: text('teach_id'),
     name: text('name'),
@@ -17,56 +15,73 @@ async function findProxy(id: string, day: string) {
     name: text('sub_name'),
   });
 
-  const teacherName = await db.select({
-    name: teachers.name,
-  })
-    .from(teachers)
-    .where(eq(teachers.id, id));
+  // Get absent teacher's name
+  const absentTeacher = await db.select().from(teachers).where(eq(teachers.id, id)).limit(1);
+  if (!absentTeacher.length) throw new Error("Absent teacher not found");
 
-  const absentTeacherScheduleTable = pgTable(teacherName[0].name as string, {
+  const absentTeacherScheduleTable = pgTable(absentTeacher[0].name as string, {
     day: text('day'),
     period: integer('period'),
     subject: text('subject_id').references(() => subjects.name),
     teachID: text('teach_id').references(() => teachers.id),
   });
 
-  const absentTeacherSchedule = await db.select().from(absentTeacherScheduleTable);
+  // Get absent teacher's schedule for the day
+  const absentTeacherSchedule = await db.select().from(absentTeacherScheduleTable).where(eq(absentTeacherScheduleTable.day, day));
 
-  const allTeachers = await db.select({
-    id: teachers.id,
-    name: teachers.name
-  }).from(teachers).where(ne(teachers.id, id));
+  // Get all other teachers
+  const allTeachers = await db.select().from(teachers).where(ne(teachers.id, id));
 
-  for (const schedule of absentTeacherSchedule) {
-    const { period, day: scheduleDay } = schedule;    
+  // Create a map to store teachers who can't be proxies for each period
+  const cannotBeProxyMap = new Map<number, Set<string>>();
 
-    for (const teacher of allTeachers) {
-      const teacherName = teacher.name;
-      const proxyTeacherTable = pgTable(teacherName as string, {
-        day: text('day'),
-        period: integer('period'),
-        subject: text('subject_id').references(() => subjects.name),
-        teachID: text('teach_id').references(() => teachers.id),
-      });
+  // Initialize the map with empty sets for each period
+  absentTeacherSchedule.forEach(schedule => {
+    cannotBeProxyMap.set(schedule.period as number, new Set<string>());
+  });
 
-      const TeacherHavingClass = await db.select().from(proxyTeacherTable)
-        .where(and(
-          eq(proxyTeacherTable.day, scheduleDay as string),
-          eq(proxyTeacherTable.period, period as number),
-        ));
+  // Check each teacher's schedule
+  for (const teacher of allTeachers) {
+    const teacherScheduleTable = pgTable(teacher.name as string, {
+      day: text('day'),
+      period: integer('period'),
+      subject: text('subject_id').references(() => subjects.name),
+      teachID: text('teach_id').references(() => teachers.id),
+    });
 
-      for (const teacher of TeacherHavingClass) {
-        const { teachID } = teacher;
+    const teacherSchedule = await db.select().from(teacherScheduleTable)
+      .where(eq(teacherScheduleTable.day, day));
 
-        CanNotBeProxy.push({id : teachID, period : period, name : teacherName});
+    teacherSchedule.forEach(schedule => {
+      const cannotBeProxySet = cannotBeProxyMap.get(schedule.period as number);
+      if (cannotBeProxySet) {
+        cannotBeProxySet.add(teacher.id as string);
       }
-    }
+    });
   }
-  console.log(CanNotBeProxy);
+
+  // Find potential proxies for each period
+  const potentialProxies = absentTeacherSchedule.map(schedule => {
+    const cannotBeProxySet = cannotBeProxyMap.get(schedule.period as number) || new Set<string>();
+    const potentialProxiesForPeriod = allTeachers.filter(teacher => !cannotBeProxySet.has(teacher.id as string));
+
+    return {
+      period: schedule.period,
+      potentialProxies: potentialProxiesForPeriod
+    };
+  });
+
+  return potentialProxies;
+  
 }
 
+
+
 export default async function Page() {
-  await findProxy("1305", 'Sunday');
+  const response = await findProxy("1305", 'Sunday');
+
+  console.log(response[0].potentialProxies);
+  
   return (
     <div>
       <NavbarComponent />

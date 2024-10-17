@@ -1,0 +1,22 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs1apm22go8te7ad4500",
+    "operations": [
+      {
+        "drop_constraint": {
+          "up": "\"teach_id\"",
+          "down": "\"teach_id\"",
+          "name": "subject__pgroll_new_teach_id_key",
+          "table": "subject",
+          "column": "teach_id"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs1apm22go8te7ad4500",
+  "parent": "mig_cs1apcq2go8te7ad44u0",
+  "schema": "public",
+  "startedAt": "2024-10-06T15:29:28.941287Z"
+}

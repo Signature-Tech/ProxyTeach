@@ -8,6 +8,154 @@ import type {
 
 const tables = [
   {
+    name: "subject",
+    checkConstraints: {
+      subject_xata_id_length_xata_id: {
+        name: "subject_xata_id_length_xata_id",
+        columns: ["xata_id"],
+        definition: "CHECK ((length(xata_id) < 256))",
+      },
+    },
+    foreignKeys: {},
+    primaryKey: [],
+    uniqueConstraints: {
+      _pgroll_new_subject_xata_id_key: {
+        name: "_pgroll_new_subject_xata_id_key",
+        columns: ["xata_id"],
+      },
+    },
+    columns: [
+      {
+        name: "sub_name",
+        type: "text",
+        notNull: true,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "xata_createdat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_id",
+        type: "text",
+        notNull: true,
+        unique: true,
+        defaultValue: "('rec_'::text || (xata_private.xid())::text)",
+        comment: "",
+      },
+      {
+        name: "xata_updatedat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_version",
+        type: "int",
+        notNull: true,
+        unique: false,
+        defaultValue: "0",
+        comment: "",
+      },
+    ],
+  },
+  {
+    name: "teachers",
+    checkConstraints: {
+      teachers_xata_id_length_xata_id: {
+        name: "teachers_xata_id_length_xata_id",
+        columns: ["xata_id"],
+        definition: "CHECK ((length(xata_id) < 256))",
+      },
+    },
+    foreignKeys: {},
+    primaryKey: [],
+    uniqueConstraints: {
+      _pgroll_new_teachers_xata_id_key: {
+        name: "_pgroll_new_teachers_xata_id_key",
+        columns: ["xata_id"],
+      },
+      teachers__pgroll_new_name_key: {
+        name: "teachers__pgroll_new_name_key",
+        columns: ["teach_name"],
+      },
+      teachers__pgroll_new_number_key: {
+        name: "teachers__pgroll_new_number_key",
+        columns: ["number"],
+      },
+      teachers__pgroll_new_teach_id_key: {
+        name: "teachers__pgroll_new_teach_id_key",
+        columns: ["teach_id"],
+      },
+    },
+    columns: [
+      {
+        name: "number",
+        type: "int",
+        notNull: true,
+        unique: true,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "teach_id",
+        type: "int",
+        notNull: true,
+        unique: true,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "teach_name",
+        type: "text",
+        notNull: true,
+        unique: true,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "xata_createdat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_id",
+        type: "text",
+        notNull: true,
+        unique: true,
+        defaultValue: "('rec_'::text || (xata_private.xid())::text)",
+        comment: "",
+      },
+      {
+        name: "xata_updatedat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_version",
+        type: "int",
+        notNull: true,
+        unique: false,
+        defaultValue: "0",
+        comment: "",
+      },
+    ],
+  },
+  {
     name: "users",
     checkConstraints: {
       users_xata_id_length_xata_id: {
@@ -87,16 +235,129 @@ const tables = [
       },
     ],
   },
+  {
+    name: "week",
+    checkConstraints: {
+      week_xata_id_length_xata_id: {
+        name: "week_xata_id_length_xata_id",
+        columns: ["xata_id"],
+        definition: "CHECK ((length(xata_id) < 256))",
+      },
+    },
+    foreignKeys: {
+      subjects_link: {
+        name: "subjects_link",
+        columns: ["subjects"],
+        referencedTable: "subject",
+        referencedColumns: ["xata_id"],
+        onDelete: "SET NULL",
+      },
+      teacher_link: {
+        name: "teacher_link",
+        columns: ["teacher"],
+        referencedTable: "teachers",
+        referencedColumns: ["xata_id"],
+        onDelete: "SET NULL",
+      },
+    },
+    primaryKey: [],
+    uniqueConstraints: {
+      _pgroll_new_week_xata_id_key1: {
+        name: "_pgroll_new_week_xata_id_key1",
+        columns: ["xata_id"],
+      },
+    },
+    columns: [
+      {
+        name: "day",
+        type: "text",
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "period",
+        type: "int",
+        notNull: true,
+        unique: false,
+        defaultValue: null,
+        comment: "",
+      },
+      {
+        name: "subjects",
+        type: "link",
+        link: { table: "subject" },
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: '{"xata.link":"subject"}',
+      },
+      {
+        name: "teacher",
+        type: "link",
+        link: { table: "teachers" },
+        notNull: false,
+        unique: false,
+        defaultValue: null,
+        comment: '{"xata.link":"teachers"}',
+      },
+      {
+        name: "xata_createdat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_id",
+        type: "text",
+        notNull: true,
+        unique: true,
+        defaultValue: "('rec_'::text || (xata_private.xid())::text)",
+        comment: "",
+      },
+      {
+        name: "xata_updatedat",
+        type: "datetime",
+        notNull: true,
+        unique: false,
+        defaultValue: "now()",
+        comment: "",
+      },
+      {
+        name: "xata_version",
+        type: "int",
+        notNull: true,
+        unique: false,
+        defaultValue: "0",
+        comment: "",
+      },
+    ],
+  },
 ] as const;
 
 export type SchemaTables = typeof tables;
 export type InferredTypes = SchemaInference<SchemaTables>;
 
+export type Subject = InferredTypes["subject"];
+export type SubjectRecord = Subject & XataRecord;
+
+export type Teachers = InferredTypes["teachers"];
+export type TeachersRecord = Teachers & XataRecord;
+
 export type Users = InferredTypes["users"];
 export type UsersRecord = Users & XataRecord;
 
+export type Week = InferredTypes["week"];
+export type WeekRecord = Week & XataRecord;
+
 export type DatabaseSchema = {
+  subject: SubjectRecord;
+  teachers: TeachersRecord;
   users: UsersRecord;
+  week: WeekRecord;
 };
 
 const DatabaseClient = buildClient();

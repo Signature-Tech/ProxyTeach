@@ -1,0 +1,27 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs1b9gi2go8te7ad45d0",
+    "operations": [
+      {
+        "add_column": {
+          "up": "0",
+          "table": "week",
+          "column": {
+            "pk": false,
+            "name": "period",
+            "type": "int",
+            "unique": false,
+            "comment": "",
+            "nullable": false
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs1b9gi2go8te7ad45d0",
+  "parent": "mig_cs1b78rujno0fvdn2gvg",
+  "schema": "public",
+  "startedAt": "2024-10-06T16:03:14.92538Z"
+}

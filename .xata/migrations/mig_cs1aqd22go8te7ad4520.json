@@ -1,0 +1,20 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs1aqd22go8te7ad4520",
+    "operations": [
+      {
+        "drop_column": {
+          "down": "0",
+          "table": "subject",
+          "column": "teach_id"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs1aqd22go8te7ad4520",
+  "parent": "mig_cs1apm22go8te7ad4500",
+  "schema": "public",
+  "startedAt": "2024-10-06T15:31:00.556793Z"
+}

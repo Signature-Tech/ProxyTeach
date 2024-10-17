@@ -1,4 +1,4 @@
-import { integer, pgTable, text } from "drizzle-orm/pg-core";
+import { pgTable, text } from "drizzle-orm/pg-core";
 import NavbarComponent from "@/components/Navbar";
 import Teacher from "@/components/TeacherLayout";
 import logo from "@/images/logo.png";
@@ -11,12 +11,14 @@ export default async function Home() {
   const session = await auth();
 
   const teachers = pgTable('teachers', {
-    id: integer('teach_id'),
+    id: text('teach_id'),
     name: text('name'),
-    number: integer('number'),
+    email: text('email'),
   })
 
   const response = await db.select().from(teachers);
+
+
 
   if (session?.user?.email === 'admin@gmail.com') {
     redirect('/control-hub')
@@ -26,9 +28,9 @@ export default async function Home() {
     return (
       <main>
         <NavbarComponent />
-        <div className="flex m-5 p-5 flex-wrap">
+        <div className="flex flex-wrap">
           {response.map((teacher) => (
-            <Teacher key={teacher.id} name={teacher.name as string} picture={logo} />
+            <Teacher key={teacher.id?.toString()} name={teacher.name as string} picture={logo} />
           ))}
         </div>
       </main>

@@ -54,7 +54,7 @@ export default async function Dashboard() {
     const teachers = pgTable('teachers', {
         id: integer('teach_id'),
         name: text('name'),
-        number: integer('number'),
+        number: integer('email'),
     })
 
     const subjects = pgTable('subject', {

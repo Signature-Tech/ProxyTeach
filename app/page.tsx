@@ -1,24 +1,14 @@
-import { pgTable, text } from "drizzle-orm/pg-core";
 import NavbarComponent from "@/components/Navbar";
 import Teacher from "@/components/TeacherLayout";
 import logo from "@/images/logo.png";
-import { db } from "@/lib/db";
+import { db, teachers } from "@/lib/db";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 
 export default async function Home() {
 
   const session = await auth();
-
-  const teachers = pgTable('teachers', {
-    id: text('teach_id'),
-    name: text('name'),
-    email: text('email'),
-  })
-
   const response = await db.select().from(teachers);
-
-
 
   if (session?.user?.email === 'admin@gmail.com') {
     redirect('/control-hub')

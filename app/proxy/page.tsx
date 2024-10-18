@@ -1,20 +1,10 @@
 import NavbarComponent from "@/components/Navbar";
 import ProxyLayout from "@/components/ProxyLayout";
-import { db } from "@/lib/db";
+import { db, teachers, subjects } from "@/lib/db";
 import { integer, pgTable, text } from "drizzle-orm/pg-core";
 import { eq, ne } from "drizzle-orm";
 
 async function findProxy(id: string, day: string) {
-  const teachers = pgTable('teachers', {
-    id: text('teach_id'),
-    name: text('name'),
-    email: text('email'),
-  });
-
-  const subjects = pgTable('subjects', {
-    name: text('sub_name'),
-  });
-
   // Get absent teacher's name
   const absentTeacher = await db.select().from(teachers).where(eq(teachers.id, id)).limit(1);
   if (!absentTeacher.length) throw new Error("Absent teacher not found");
@@ -81,7 +71,7 @@ export default async function Page() {
   
   const proxy = await findProxy("9007", "Sunday");
 
-  console.log(proxy);
+  console.log(proxy[0].potentialProxies);
   
   return (
     <div>

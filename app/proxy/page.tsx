@@ -78,7 +78,10 @@ async function findProxy(id: string, day: string) {
 
 
 export default async function Page() {
-  const response = await findProxy("1305", 'Sunday');
+  
+  const proxy = await findProxy("9007", "Sunday");
+
+  console.log(proxy);
   
   return (
     <div>

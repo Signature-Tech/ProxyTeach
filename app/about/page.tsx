@@ -23,7 +23,7 @@ export default function Component() {
                 objectFit="cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-background/50 to-transparent" />
-              <div className="absolute bottom-4 left-4 right-4">
+              <div className="absolute bottom-10 md:bottom-4 left-4 right-4">
                 <h2 className="text-xl sm:text-2xl font-bold">Empowering Education</h2>
                 <p className="text-sm sm:text-base">Ensuring every class, every day</p>
               </div>

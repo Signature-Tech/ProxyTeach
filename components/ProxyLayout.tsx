@@ -77,8 +77,6 @@ export function ProxyLayout() {
                                         <SelectItem value="Tuesday">Tuesday</SelectItem>
                                         <SelectItem value="Wednesday">Wednesday</SelectItem>
                                         <SelectItem value="Thursday">Thursday</SelectItem>
-                                        <SelectItem value="Friday">Friday</SelectItem>
-                                        <SelectItem value="Saturday">Friday</SelectItem>
                                     </SelectContent>
                                 </Select>
                             </div>

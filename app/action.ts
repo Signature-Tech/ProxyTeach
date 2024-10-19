@@ -5,10 +5,10 @@ import { db, teachers, subjects } from "@/lib/db";
 import { integer, pgTable, text } from "drizzle-orm/pg-core";
 import { eq, ne } from "drizzle-orm";
 
-export async function findProxy(formData: FormData) {
+export async function findProxy(formData: FormData, selectedDay: string | undefined) {
 
     const id = formData.get('ID') as string
-    const day = 'Sunday' // You might want to make this dynamic
+    const day = selectedDay as string // You might want to make this dynamic
 
     const absentTeacher = await db.select().from(teachers).where(eq(teachers.id, id)).limit(1);
     if (!absentTeacher.length) throw new Error("Absent teacher not found");

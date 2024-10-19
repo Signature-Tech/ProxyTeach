@@ -1,8 +1,8 @@
-import Image from 'next/image'
+
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import NavbarComponent from '@/components/Navbar'
-import schoolImage1 from "@/images/school-image-1.jpg"
+import schoolImage1 from "@/images/about.jpg"
 import Link from 'next/link'
 import { auth } from '@/auth'
 import { redirect } from 'next/navigation'
@@ -18,24 +18,17 @@ export default async function HomePage() {
   return (
     <div>
       <NavbarComponent />
-      <div className="flex flex-col min-h-screen md:ml-10">
+      <div className="flex flex-col min-h-screen">
         {/* Hero Section */}
-        <section className="relative py-16 md:py-24">
-          <div className="container mx-auto px-4">
+        <section className="relative py-16 md:py-24 bg-cover bg-center" style={{ backgroundImage: `url(${schoolImage1.src})` }}>
+          <div className="absolute inset-0 bg-gradient-to-br from-background/60 dark:from-background to-transparent z-10"></div>
+          <div className="absolute inset-0 bg-black opacity-50"></div>
+          <div className="container mx-auto px-4 relative z-10">
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-1/2 mb-8 md:mb-0">
                 <h1 className="text-4xl md:text-5xl font-bold mb-4">Find Your Perfect Proxy Teacher</h1>
                 <p className="text-xl mb-6">Seamlessly connect with qualified educators for your classroom needs.</p>
                 <Button size="lg"><Link href="#cta">Get Started</Link></Button>
-              </div>
-              <div className="md:w-1/2">
-                <Image
-                  src={schoolImage1}
-                  alt="Teacher in classroom"
-                  width={600}
-                  height={400}
-                  className="rounded-lg shadow-lg"
-                />
               </div>
             </div>
           </div>

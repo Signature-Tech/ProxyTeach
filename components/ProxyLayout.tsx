@@ -1,6 +1,7 @@
 "use client"
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Image from 'next/image';
 import {
     Carousel,
@@ -36,11 +37,16 @@ interface ProxyResult {
 export function ProxyLayout() {
 
     const [potentialProxies, setPotentialProxies] = useState<ProxyResult[]>([])
+    const [selectedDay, setSelectedDay] = useState<string | undefined>(undefined);
+
+    const handleDaySelect = (value: string) => {
+        setSelectedDay(value);
+    };
 
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
-        const formData = new FormData(e.currentTarget);
-        const result = await findProxy(formData);
+        const formData = new FormData(e.currentTarget)
+        const result = await findProxy(formData, selectedDay);
 
         setPotentialProxies(result);
     }
@@ -54,15 +60,31 @@ export function ProxyLayout() {
                     </CardHeader>
                     <CardContent>
                         <form onSubmit={handleSubmit} className="space-y-4">
-                            <Input
-                                name="ID"
-                                type="text"
-                                placeholder="Enter Teacher ID"
-                                className="w-full"
-                            />
-                            <Button type="submit" className="w-full">
-                                Search
-                            </Button>
+                            <div className="flex flex-row gap-4">
+                                <Input
+                                    name="ID"
+                                    type="text"
+                                    placeholder="Enter Teacher ID"
+                                    className="w-full"
+                                />
+                                <Select onValueChange={(value) => handleDaySelect(value)}>
+                                    <SelectTrigger className="w-[180px]">
+                                        <SelectValue placeholder="Select day" />
+                                    </SelectTrigger>
+                                    <SelectContent>
+                                        <SelectItem value="Sunday">Sunday</SelectItem>
+                                        <SelectItem value="Monday">Monday</SelectItem>
+                                        <SelectItem value="Tuesday">Tuesday</SelectItem>
+                                        <SelectItem value="Wednesday">Wednesday</SelectItem>
+                                        <SelectItem value="Thursday">Thursday</SelectItem>
+                                        <SelectItem value="Friday">Friday</SelectItem>
+                                        <SelectItem value="Saturday">Friday</SelectItem>
+                                    </SelectContent>
+                                </Select>
+                            </div>
+                                <Button type="submit" className="w-full">
+                                    Search
+                                </Button>
                         </form>
                         <div className="mt-6">
                             {potentialProxies.length > 0 ? (

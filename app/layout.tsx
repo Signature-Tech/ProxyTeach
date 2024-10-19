@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeWrapper";
 import SessionWrapper from "@/components/SessionWrapper";
+import { Toaster } from "@/components/ui/toaster";
 
 const poppins = Poppins({
   weight : "600",
@@ -24,6 +25,7 @@ export default function RootLayout({
       <body className={poppins.className}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <SessionWrapper>{children}</SessionWrapper>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

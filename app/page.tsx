@@ -4,12 +4,21 @@ import { Card, CardContent } from "@/components/ui/card"
 import NavbarComponent from '@/components/Navbar'
 import schoolImage1 from "@/images/school-image-1.jpg"
 import Link from 'next/link'
+import { auth } from '@/auth'
+import { redirect } from 'next/navigation'
 
-export default function HomePage() {
+export default async function HomePage() {
+
+  const session = await auth()
+
+  if (!session) {
+    redirect('api/auth/signin')
+  }
+
   return (
     <div>
       <NavbarComponent />
-      <div className="flex flex-col min-h-screen">
+      <div className="flex flex-col min-h-screen md:ml-10">
         {/* Hero Section */}
         <section className="relative py-16 md:py-24">
           <div className="container mx-auto px-4">

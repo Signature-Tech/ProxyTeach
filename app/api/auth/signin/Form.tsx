@@ -8,8 +8,11 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { signIn } from "next-auth/react"
+import { useToast } from "@/hooks/use-toast"
 
 export default function Form() {
+
+    const toast = useToast();
 
     const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
@@ -22,6 +25,14 @@ export default function Form() {
 
         if (!response?.error) {
             window.location.href = "/"
+        }
+
+        else {
+            toast.toast({
+                title: "Wrond Credentials !",
+                description: "Are you sure you have the right credentials ?",
+                variant: "destructive",
+            })
         }
     }
 

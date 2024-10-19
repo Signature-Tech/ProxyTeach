@@ -26,9 +26,9 @@ export default async function HomePage() {
           <div className="container mx-auto px-4 relative z-10">
             <div className="flex flex-col md:flex-row items-center">
               <div className="md:w-1/2 mb-8 md:mb-0">
-                <h1 className="text-4xl md:text-5xl font-bold mb-4">Find Your Perfect Proxy Teacher</h1>
-                <p className="text-xl mb-6">Seamlessly connect with qualified educators for your classroom needs.</p>
-                <Button size="lg"><Link href="#cta">Get Started</Link></Button>
+                <h1 className="text-4xl md:text-5xl font-bold mb-4 md:ml-16">Find Your Perfect Proxy Teacher</h1>
+                <p className="text-xl mb-6 md:ml-16">Seamlessly connect with qualified educators for your classroom needs.</p>
+                <Button size="lg" className="md:ml-16"><Link href="#cta">Get Started</Link></Button>
               </div>
             </div>
           </div>

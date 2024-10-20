@@ -22,6 +22,7 @@ import { Button } from "./ui/button";
 import { findProxy } from "@/app/action";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import { AvatarFallback } from "@radix-ui/react-avatar";
+import { useToast } from "@/hooks/use-toast";
 
 interface ProxyTeacher {
     id: string | null;
@@ -36,8 +37,11 @@ interface ProxyResult {
 
 export function ProxyLayout() {
 
+    const toast = useToast();
+
     const [potentialProxies, setPotentialProxies] = useState<ProxyResult[]>([])
     const [selectedDay, setSelectedDay] = useState<string | undefined>(undefined);
+    const [searchedTeacherId, setSearchedTeacherId] = useState<string>('');
 
     const handleDaySelect = (value: string) => {
         setSelectedDay(value);
@@ -46,10 +50,38 @@ export function ProxyLayout() {
     const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         const formData = new FormData(e.currentTarget)
+        const teacherId = formData.get('ID') as string;
+        setSearchedTeacherId(teacherId);
         const result = await findProxy(formData, selectedDay);
-
         setPotentialProxies(result);
     }
+
+    const handleAssign = async (teacherEmail: string, period: number | null) => {
+        try {
+            const response = await fetch('/api/send-email', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email: teacherEmail, period, searchedTeacherId }),
+            });
+
+            if (response.ok) {
+                toast.toast({
+                    title: "Email sent",
+                    description: "The teacher has been notified.",
+                });
+            } else {
+                throw new Error('Failed to send email');
+            }
+        } catch (error) {
+            toast.toast({
+                title: "Error",
+                description: "Failed to send email. Please try again.",
+                variant: "destructive",
+            });
+        }
+    };
 
     return (
         <div className="container mx-auto p-4">
@@ -95,15 +127,18 @@ export function ProxyLayout() {
                                             <CardContent className="pt-4">
                                                 {proxy.potentialProxies.map((teacher, teacherIndex) => (
                                                     <div key={teacherIndex} className="mb-4 last:mb-0">
-                                                        <div className="flex items-center space-x-3">
-                                                            <Avatar className="h-8 w-8">
-                                                                <AvatarImage src={`https://api.dicebear.com/6.x/initials/svg?seed=${teacher.name}`} alt={teacher.name || ''} />
-                                                                <AvatarFallback>{teacher.name?.slice(0, 2).toUpperCase()}</AvatarFallback>
-                                                            </Avatar>
-                                                            <div>
-                                                                <h3 className="font-semibold">{teacher.name}</h3>
-                                                                <p className="text-sm text-muted-foreground">{teacher.email}</p>
+                                                        <div className="flex items-center justify-between space-x-3">
+                                                            <div className="flex items-center space-x-3">
+                                                                <Avatar className="h-8 w-8">
+                                                                    <AvatarImage src={`https://api.dicebear.com/6.x/initials/svg?seed=${teacher.name}`} alt={teacher.name || ''} />
+                                                                    <AvatarFallback>{teacher.name?.slice(0, 2).toUpperCase()}</AvatarFallback>
+                                                                </Avatar>
+                                                                <div>
+                                                                    <h3 className="font-semibold">{teacher.name}</h3>
+                                                                </div>
                                                             </div>
+                                                            <Button onClick={() => handleAssign(teacher.email || '', proxy.period || 0)}>Assign</Button>
+
                                                         </div>
                                                     </div>
                                                 ))}

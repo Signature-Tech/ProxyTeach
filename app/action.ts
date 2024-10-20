@@ -46,13 +46,18 @@ export async function findProxy(formData: FormData, selectedDay: string | undefi
             if (cannotBeProxySet) {
                 cannotBeProxySet.add(teacher.id as string);
             }
+            // Update class count for this teacher
+            teacherClassCount.set(teacher.id as string, (teacherClassCount.get(teacher.id as string) || 0) + 1);
         });
     }
 
     const potentialProxies = absentTeacherSchedule.map(schedule => {
         const cannotBeProxySet = cannotBeProxyMap.get(schedule.period as number) || new Set<string>();
-        const potentialProxiesForPeriod = allTeachers.filter(teacher => !cannotBeProxySet.has(teacher.id as string));
-
+        const potentialProxiesForPeriod = allTeachers.filter(teacher => 
+            !cannotBeProxySet.has(teacher.id as string) && 
+            (teacherClassCount.get(teacher.id as string) || 0) < 4
+        );
+    
         return {
             period: schedule.period,
             potentialProxies: potentialProxiesForPeriod
@@ -62,3 +67,5 @@ export async function findProxy(formData: FormData, selectedDay: string | undefi
     return potentialProxies
 
 }
+
+const teacherClassCount = new Map<string, number>();

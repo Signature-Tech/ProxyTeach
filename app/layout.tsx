@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeWrapper";
-import SessionWrapper from "@/components/SessionWrapper";
 import { Toaster } from "@/components/ui/toaster";
 
 const poppins = Poppins({
@@ -24,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className}>
         <ThemeProvider attribute="class" defaultTheme="dark">
-          <SessionWrapper>{children}</SessionWrapper>
+          {children}
           <Toaster />
         </ThemeProvider>
       </body>

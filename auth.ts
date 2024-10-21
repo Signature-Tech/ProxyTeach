@@ -6,7 +6,6 @@ import { eq } from "drizzle-orm";
 import { pgTable, text } from "drizzle-orm/pg-core";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
-  secret: process.env.AUTH_SECRET,
   pages: {
     signIn: '/api/auth/signin',
   },

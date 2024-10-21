@@ -13,7 +13,7 @@ export async function POST(request: Request) {
     service: 'gmail',
     auth: {
       user: 'thefk.fakenking@gmail.com',
-      pass: 'rucf fjmg ddro tiew'
+      pass: process.env.GMAIL_PASSWORD,
     }
   });
 

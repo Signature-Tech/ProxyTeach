@@ -6,7 +6,7 @@ import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import { Button } from "@/components/ui/button"
 import Image from 'next/image'
-import logo from '@/images/logo.png'
+import logo from '@/images/person.png'
 import { ModeToggle } from './Toggle'
 import { useSession } from 'next-auth/react'
 
@@ -25,7 +25,7 @@ export default function NavbarComponent() {
                         </div>
                         <div className="hidden md:block">
                             <div className=" flex justify-between text-2xl font-semibold">
-                                <Image src={logo} alt="logo" width={80} height={80} />
+                                <Image src={logo} alt="logo" width={60} height={40} className='rounded-lg' />
                                 {session?.user ? <h1 className='pl-5 pt-6'>{session.user.name}</h1> : <h1 className='pl-5 pt-6'>ProxyTeach Hub</h1>}
                             </div>
                         </div>

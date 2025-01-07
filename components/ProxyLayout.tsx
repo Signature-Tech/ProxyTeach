@@ -23,6 +23,7 @@ import { findProxy } from "@/app/action";
 import { Avatar, AvatarImage } from "./ui/avatar";
 import { AvatarFallback } from "@radix-ui/react-avatar";
 import { useToast } from "@/hooks/use-toast";
+import { useRouter } from "next/navigation";
 
 interface ProxyTeacher {
     id: string | null;
@@ -36,6 +37,8 @@ interface ProxyResult {
 }
 
 export function ProxyLayout() {
+
+    const router = useRouter()
 
     const toast = useToast();
 
@@ -54,6 +57,8 @@ export function ProxyLayout() {
         setSearchedTeacherId(teacherId);
         const result = await findProxy(formData, selectedDay);
         setPotentialProxies(result);
+
+        router.refresh();
     }
 
     const handleAssign = async (teacherEmail: string, period: number | null) => {
@@ -71,6 +76,8 @@ export function ProxyLayout() {
                     title: "Email sent",
                     description: "The teacher has been notified.",
                 });
+
+                router.refresh();
             } else {
                 throw new Error('Failed to send email');
             }

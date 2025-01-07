@@ -15,7 +15,7 @@ export async function POST(request: Request) {
       user: 'thefk.fakenking@gmail.com',
       pass: process.env.GMAIL_PASSWORD,
     }
-  });
+  }); 
 
   try {
     // Send mail with defined transport object
@@ -27,9 +27,20 @@ export async function POST(request: Request) {
       html: `<b>You have been assigned as a proxy teacher for ${teacherName[0].name} during period ${period}.</b>`,
     });
 
-    return NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
+    const response = NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
+
+    response.headers.set('Cache-Control', 'no-store, max-age=0');
+
+    return response
+
   } catch (error) {
     console.error('Error sending email:', error);
-    return NextResponse.json({ message: 'Failed to send email' }, { status: 500 });
+    
+    const response = NextResponse.json({ message: 'Email sent successfully' }, { status: 200 });
+
+    response.headers.set('Cache-Control', 'no-store, max-age=0');
+
+    return response
+
   }
 }

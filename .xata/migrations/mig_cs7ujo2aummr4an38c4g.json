@@ -1,0 +1,32 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs7ujo2aummr4an38c4g",
+    "operations": [
+      {
+        "add_column": {
+          "table": "Aarsh",
+          "column": {
+            "pk": false,
+            "name": "subject_id",
+            "type": "text",
+            "unique": false,
+            "comment": "{\"xata.link\":\"subjects\"}",
+            "nullable": true,
+            "references": {
+              "name": "subject_id_link",
+              "table": "subjects",
+              "column": "xata_id",
+              "on_delete": "SET NULL"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs7ujo2aummr4an38c4g",
+  "parent": "mig_cs7ujio52sg8i85mrf90",
+  "schema": "public",
+  "startedAt": "2024-10-16T16:29:21.482953Z"
+}

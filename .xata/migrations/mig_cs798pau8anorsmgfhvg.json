@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs798pau8anorsmgfhvg",
+    "operations": [
+      {
+        "drop_table": {
+          "name": "teachers"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs798pau8anorsmgfhvg",
+  "parent": "mig_cs798jau8anorsmgfhug",
+  "schema": "public",
+  "startedAt": "2024-10-15T16:12:21.749032Z"
+}

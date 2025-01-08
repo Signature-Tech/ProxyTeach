@@ -1,0 +1,32 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_csb9ikkjvfnl258s6chg",
+    "operations": [
+      {
+        "add_column": {
+          "table": "Shahana Sultana",
+          "column": {
+            "pk": false,
+            "name": "subject_id",
+            "type": "text",
+            "unique": false,
+            "comment": "{\"xata.link\":\"subjects\"}",
+            "nullable": true,
+            "references": {
+              "name": "subject_id_link",
+              "table": "subjects",
+              "column": "xata_id",
+              "on_delete": "SET NULL"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_csb9ikkjvfnl258s6chg",
+  "parent": "mig_csb9i472qe4a1a2lccpg",
+  "schema": "public",
+  "startedAt": "2024-10-21T18:11:30.669775Z"
+}

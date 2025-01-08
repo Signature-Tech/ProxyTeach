@@ -1,0 +1,21 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs3vor22go8te7ad4v50",
+    "operations": [
+      {
+        "drop_constraint": {
+          "up": "\"teach_name\"",
+          "down": "\"teach_name\"",
+          "name": "teachers__pgroll_new_name_key",
+          "table": "teachers"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs3vor22go8te7ad4v50",
+  "parent": "mig_cs3vhq3ujno0fvdn3ju0",
+  "schema": "public",
+  "startedAt": "2024-10-10T16:10:20.995924Z"
+}

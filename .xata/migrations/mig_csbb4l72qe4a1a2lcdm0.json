@@ -1,0 +1,19 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_csbb4l72qe4a1a2lcdm0",
+    "operations": [
+      {
+        "rename_table": {
+          "to": "Shahana Sultana",
+          "from": "Aarsh"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_csbb4l72qe4a1a2lcdm0",
+  "parent": "mig_csbb2ff2qe4a1a2lcdl0",
+  "schema": "public",
+  "startedAt": "2024-10-21T19:58:13.276145Z"
+}

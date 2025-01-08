@@ -1,0 +1,19 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs71ondq7u8k14nbskug",
+    "operations": [
+      {
+        "rename_table": {
+          "to": "Tiaaf",
+          "from": "week"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs71ondq7u8k14nbskug",
+  "parent": "mig_cs3vrst4rshpd1p6dlk0",
+  "schema": "public",
+  "startedAt": "2024-10-15T07:40:14.133276Z"
+}

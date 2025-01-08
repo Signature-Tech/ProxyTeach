@@ -1,0 +1,20 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs3vos22go8te7ad4v60",
+    "operations": [
+      {
+        "alter_column": {
+          "name": "name",
+          "table": "teachers",
+          "column": "teach_name"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs3vos22go8te7ad4v60",
+  "parent": "mig_cs3vor22go8te7ad4v50",
+  "schema": "public",
+  "startedAt": "2024-10-10T16:10:24.977764Z"
+}

@@ -1,0 +1,33 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs7u01qaummr4an38blg",
+    "operations": [
+      {
+        "add_column": {
+          "table": "Zawad",
+          "column": {
+            "pk": false,
+            "name": "teach_id",
+            "type": "text",
+            "unique": false,
+            "comment": "{\"xata.link\":\"teachers\"}",
+            "default": "'rec_cs79oudqrj60c09j6jt0'",
+            "nullable": true,
+            "references": {
+              "name": "teach_id_link",
+              "table": "teachers",
+              "column": "teach_id",
+              "on_delete": "SET NULL"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs7u01qaummr4an38blg",
+  "parent": "mig_cs7tvmqu8anorsmgfsc0",
+  "schema": "public",
+  "startedAt": "2024-10-16T15:47:20.565027Z"
+}

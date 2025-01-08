@@ -1,6 +1,6 @@
 {
   "databaseURL": "https://Tariq-Hassan-s-workspace-5iqs1u.us-east-1.xata.sh/db/Auth",
   "codegen": {
-    "output": "./xata.ts"
+    "output": "xata.ts"
   }
 }

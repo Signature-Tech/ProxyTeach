@@ -1,0 +1,26 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs797oiu8anorsmgfhtg",
+    "operations": [
+      {
+        "add_column": {
+          "table": "teachers",
+          "column": {
+            "pk": false,
+            "name": "lol",
+            "type": "text",
+            "unique": false,
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs797oiu8anorsmgfhtg",
+  "parent": "mig_cs78tq2u8anorsmgfgfg",
+  "schema": "public",
+  "startedAt": "2024-10-15T16:10:10.595328Z"
+}

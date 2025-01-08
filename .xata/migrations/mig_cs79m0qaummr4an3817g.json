@@ -1,0 +1,27 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs79m0qaummr4an3817g",
+    "operations": [
+      {
+        "add_column": {
+          "up": "''",
+          "table": "teachers",
+          "column": {
+            "pk": false,
+            "name": "day",
+            "type": "text",
+            "unique": false,
+            "comment": "",
+            "nullable": false
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs79m0qaummr4an3817g",
+  "parent": "mig_cs79lsqaummr4an3816g",
+  "schema": "public",
+  "startedAt": "2024-10-15T16:40:35.871387Z"
+}

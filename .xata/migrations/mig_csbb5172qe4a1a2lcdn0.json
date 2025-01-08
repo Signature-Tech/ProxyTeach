@@ -1,0 +1,19 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_csbb5172qe4a1a2lcdn0",
+    "operations": [
+      {
+        "rename_table": {
+          "to": "Rifath Ara",
+          "from": "Rahil"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_csbb5172qe4a1a2lcdn0",
+  "parent": "mig_csbb4rcjvfnl258s6cu0",
+  "schema": "public",
+  "startedAt": "2024-10-21T19:59:00.731384Z"
+}

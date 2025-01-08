@@ -1,0 +1,27 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs7tvmqu8anorsmgfsc0",
+    "operations": [
+      {
+        "add_column": {
+          "up": "0",
+          "table": "Zawad",
+          "column": {
+            "pk": false,
+            "name": "period",
+            "type": "int",
+            "unique": false,
+            "comment": "",
+            "nullable": false
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs7tvmqu8anorsmgfsc0",
+  "parent": "mig_cs7tvio52sg8i85mrf0g",
+  "schema": "public",
+  "startedAt": "2024-10-16T15:46:36.159227Z"
+}

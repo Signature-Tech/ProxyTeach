@@ -1,0 +1,19 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_csbhun4jvfnl258s6f5g",
+    "operations": [
+      {
+        "rename_table": {
+          "to": "Amjad Hossain",
+          "from": "Rifath Ara"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_csbhun4jvfnl258s6f5g",
+  "parent": "mig_csbb5172qe4a1a2lcdn0",
+  "schema": "public",
+  "startedAt": "2024-10-22T03:43:25.763609Z"
+}

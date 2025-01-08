@@ -1,0 +1,32 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs79pt2u8anorsmgfigg",
+    "operations": [
+      {
+        "add_column": {
+          "table": "Tiaaf",
+          "column": {
+            "pk": false,
+            "name": "teachID",
+            "type": "text",
+            "unique": false,
+            "comment": "{\"xata.link\":\"teachers\"}",
+            "nullable": true,
+            "references": {
+              "name": "teachID_link",
+              "table": "teachers",
+              "column": "teach_id",
+              "on_delete": "SET NULL"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs79pt2u8anorsmgfigg",
+  "parent": "mig_cs79nnqaummr4an381cg",
+  "schema": "public",
+  "startedAt": "2024-10-15T16:48:53.13675Z"
+}

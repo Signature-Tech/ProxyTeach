@@ -1,0 +1,33 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs79t2852sg8i85mr32g",
+    "operations": [
+      {
+        "add_column": {
+          "table": "Tiaaf",
+          "column": {
+            "pk": false,
+            "name": "subject_id",
+            "type": "text",
+            "unique": false,
+            "comment": "{\"xata.link\":\"subjects\"}",
+            "default": "'rec_cs1andj3gqoks7moeqi0'",
+            "nullable": false,
+            "references": {
+              "name": "subject_id_link",
+              "table": "subjects",
+              "column": "xata_id",
+              "on_delete": "SET NULL"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs79t2852sg8i85mr32g",
+  "parent": "mig_cs79sng52sg8i85mr31g",
+  "schema": "public",
+  "startedAt": "2024-10-15T16:55:38.628558Z"
+}

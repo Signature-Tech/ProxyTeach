@@ -1,0 +1,32 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs7uik852sg8i85mrf80",
+    "operations": [
+      {
+        "add_column": {
+          "table": "Raid",
+          "column": {
+            "pk": false,
+            "name": "subject_id",
+            "type": "text",
+            "unique": false,
+            "comment": "{\"xata.link\":\"subjects\"}",
+            "nullable": true,
+            "references": {
+              "name": "subject_id_link",
+              "table": "subjects",
+              "column": "xata_id",
+              "on_delete": "SET NULL"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs7uik852sg8i85mrf80",
+  "parent": "mig_cs7uifqaummr4an38c2g",
+  "schema": "public",
+  "startedAt": "2024-10-16T16:26:58.271853Z"
+}

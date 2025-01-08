@@ -1,0 +1,20 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs3vprd4rshpd1p6dlj0",
+    "operations": [
+      {
+        "alter_column": {
+          "name": "name",
+          "table": "subjects",
+          "column": "sub_name"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs3vprd4rshpd1p6dlj0",
+  "parent": "mig_cs3vpnd4rshpd1p6dli0",
+  "schema": "public",
+  "startedAt": "2024-10-10T16:12:30.533498Z"
+}

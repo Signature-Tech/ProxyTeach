@@ -1,0 +1,32 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs7u28g52sg8i85mrf1g",
+    "operations": [
+      {
+        "add_column": {
+          "table": "Rahil",
+          "column": {
+            "pk": false,
+            "name": "subject_id",
+            "type": "text",
+            "unique": false,
+            "comment": "{\"xata.link\":\"subjects\"}",
+            "nullable": true,
+            "references": {
+              "name": "subject_id_link",
+              "table": "subjects",
+              "column": "xata_id",
+              "on_delete": "SET NULL"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs7u28g52sg8i85mrf1g",
+  "parent": "mig_cs7u21qaummr4an38bpg",
+  "schema": "public",
+  "startedAt": "2024-10-16T15:52:03.084619Z"
+}

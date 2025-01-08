@@ -1,0 +1,33 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs7u0diaummr4an38bmg",
+    "operations": [
+      {
+        "add_column": {
+          "table": "Zawad",
+          "column": {
+            "pk": false,
+            "name": "subject_id",
+            "type": "text",
+            "unique": false,
+            "comment": "{\"xata.link\":\"subjects\"}",
+            "default": "'rec_cs71qi7beh88vc0i9sj0'",
+            "nullable": true,
+            "references": {
+              "name": "subject_id_link",
+              "table": "subjects",
+              "column": "xata_id",
+              "on_delete": "SET NULL"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs7u0diaummr4an38bmg",
+  "parent": "mig_cs7u01qaummr4an38blg",
+  "schema": "public",
+  "startedAt": "2024-10-16T15:48:07.152051Z"
+}

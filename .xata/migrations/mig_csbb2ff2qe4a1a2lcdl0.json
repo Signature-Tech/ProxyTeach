@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_csbb2ff2qe4a1a2lcdl0",
+    "operations": [
+      {
+        "drop_table": {
+          "name": "Shahana Sultana"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_csbb2ff2qe4a1a2lcdl0",
+  "parent": "mig_csb9ikkjvfnl258s6chg",
+  "schema": "public",
+  "startedAt": "2024-10-21T19:53:34.524253Z"
+}

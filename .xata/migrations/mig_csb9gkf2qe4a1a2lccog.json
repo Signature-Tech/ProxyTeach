@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_csb9gkf2qe4a1a2lccog",
+    "operations": [
+      {
+        "drop_table": {
+          "name": "Tiaaf"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_csb9gkf2qe4a1a2lccog",
+  "parent": "mig_csb9fscjvfnl258s6ceg",
+  "schema": "public",
+  "startedAt": "2024-10-21T18:07:14.768478Z"
+}

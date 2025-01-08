@@ -1,0 +1,26 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_csb9hacjvfnl258s6cfg",
+    "operations": [
+      {
+        "add_column": {
+          "table": "Shahana Sultana",
+          "column": {
+            "pk": false,
+            "name": "day",
+            "type": "text",
+            "unique": false,
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_csb9hacjvfnl258s6cfg",
+  "parent": "mig_csb9gkf2qe4a1a2lccog",
+  "schema": "public",
+  "startedAt": "2024-10-21T18:08:42.340553Z"
+}

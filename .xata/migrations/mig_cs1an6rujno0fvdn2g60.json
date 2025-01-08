@@ -1,0 +1,27 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs1an6rujno0fvdn2g60",
+    "operations": [
+      {
+        "add_column": {
+          "up": "0",
+          "table": "subject",
+          "column": {
+            "pk": false,
+            "name": "teach_id",
+            "type": "int",
+            "unique": true,
+            "comment": "",
+            "nullable": false
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs1an6rujno0fvdn2g60",
+  "parent": "mig_cs1amlq2go8te7ad44t0",
+  "schema": "public",
+  "startedAt": "2024-10-06T15:24:11.446583Z"
+}

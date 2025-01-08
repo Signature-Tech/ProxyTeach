@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs79mfqaummr4an3818g",
+    "operations": [
+      {
+        "drop_table": {
+          "name": "teachers"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs79mfqaummr4an3818g",
+  "parent": "mig_cs79m0qaummr4an3817g",
+  "schema": "public",
+  "startedAt": "2024-10-15T16:41:36.403408Z"
+}

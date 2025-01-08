@@ -1,0 +1,19 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs79g0iu8anorsmgfi10",
+    "operations": [
+      {
+        "rename_table": {
+          "to": "teachers",
+          "from": "Teachers"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs79g0iu8anorsmgfi10",
+  "parent": "mig_cs79fr852sg8i85mr2rg",
+  "schema": "public",
+  "startedAt": "2024-10-15T16:27:47.277436Z"
+}

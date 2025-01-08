@@ -1,0 +1,26 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs7u1gqu8anorsmgfsd0",
+    "operations": [
+      {
+        "add_column": {
+          "table": "Rahil",
+          "column": {
+            "pk": false,
+            "name": "day",
+            "type": "text",
+            "unique": false,
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs7u1gqu8anorsmgfsd0",
+  "parent": "mig_cs7u1aaaummr4an38bng",
+  "schema": "public",
+  "startedAt": "2024-10-16T15:50:28.284232Z"
+}

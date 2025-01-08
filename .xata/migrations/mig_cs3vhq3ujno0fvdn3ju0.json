@@ -1,0 +1,32 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs3vhq3ujno0fvdn3ju0",
+    "operations": [
+      {
+        "add_column": {
+          "table": "week",
+          "column": {
+            "pk": false,
+            "name": "tutor",
+            "type": "text",
+            "unique": false,
+            "comment": "{\"xata.link\":\"teachers\"}",
+            "nullable": true,
+            "references": {
+              "name": "tutor_link",
+              "table": "teachers",
+              "column": "xata_id",
+              "on_delete": "SET NULL"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs3vhq3ujno0fvdn3ju0",
+  "parent": "mig_cs3vgvi2go8te7ad4v10",
+  "schema": "public",
+  "startedAt": "2024-10-10T15:55:21.507385Z"
+}

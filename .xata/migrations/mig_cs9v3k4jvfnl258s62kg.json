@@ -1,0 +1,19 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs9v3k4jvfnl258s62kg",
+    "operations": [
+      {
+        "rename_table": {
+          "to": "Tiaaf",
+          "from": "Tiaaf 123"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs9v3k4jvfnl258s62kg",
+  "parent": "mig_cs9v3gcjvfnl258s62jg",
+  "schema": "public",
+  "startedAt": "2024-10-19T17:52:17.084442Z"
+}

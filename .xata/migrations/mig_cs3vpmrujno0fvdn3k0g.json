@@ -1,0 +1,19 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs3vpmrujno0fvdn3k0g",
+    "operations": [
+      {
+        "rename_table": {
+          "to": "subjects",
+          "from": "subject"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs3vpmrujno0fvdn3k0g",
+  "parent": "mig_cs3vos22go8te7ad4v60",
+  "schema": "public",
+  "startedAt": "2024-10-10T16:12:11.46224Z"
+}

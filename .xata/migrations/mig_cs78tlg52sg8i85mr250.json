@@ -1,0 +1,85 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs78tlg52sg8i85mr250",
+    "operations": [
+      {
+        "create_table": {
+          "name": "tiaf1",
+          "columns": [
+            {
+              "name": "Day",
+              "type": "text",
+              "comment": "{}",
+              "nullable": true
+            },
+            {
+              "name": "period",
+              "type": "int",
+              "comment": "{}",
+              "nullable": true
+            },
+            {
+              "name": "teacher_id",
+              "type": "int",
+              "comment": "{}",
+              "nullable": true
+            },
+            {
+              "name": "subject_id",
+              "type": "int",
+              "comment": "{}",
+              "nullable": true
+            },
+            {
+              "name": "xata_id",
+              "type": "text",
+              "check": {
+                "name": "tiaf1_xata_id_length_xata_id",
+                "constraint": "length(\"xata_id\") < 256"
+              },
+              "unique": true,
+              "default": "'rec_' || xata_private.xid()",
+              "nullable": false
+            },
+            {
+              "name": "xata_version",
+              "type": "integer",
+              "default": "0",
+              "nullable": false
+            },
+            {
+              "name": "xata_createdat",
+              "type": "timestamptz",
+              "default": "now()",
+              "nullable": false
+            },
+            {
+              "name": "xata_updatedat",
+              "type": "timestamptz",
+              "default": "now()",
+              "nullable": false
+            }
+          ]
+        }
+      },
+      {
+        "sql": {
+          "up": "ALTER TABLE \"tiaf1\" REPLICA IDENTITY FULL",
+          "onComplete": true
+        }
+      },
+      {
+        "sql": {
+          "up": "CREATE TRIGGER xata_maintain_metadata_trigger_pgroll\n  BEFORE INSERT OR UPDATE\n  ON \"tiaf1\"\n  FOR EACH ROW\n  EXECUTE FUNCTION xata_private.maintain_metadata_trigger_pgroll()",
+          "onComplete": true
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs78tlg52sg8i85mr250",
+  "parent": "mig_cs721go4alekuokhsvd0",
+  "schema": "public",
+  "startedAt": "2024-10-15T15:48:39.149644Z"
+}

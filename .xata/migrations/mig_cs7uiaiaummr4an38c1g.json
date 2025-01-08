@@ -1,0 +1,26 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs7uiaiaummr4an38c1g",
+    "operations": [
+      {
+        "add_column": {
+          "table": "Raid",
+          "column": {
+            "pk": false,
+            "name": "period",
+            "type": "int",
+            "unique": false,
+            "comment": "",
+            "nullable": true
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs7uiaiaummr4an38c1g",
+  "parent": "mig_cs7ui6iu8anorsmgfsg0",
+  "schema": "public",
+  "startedAt": "2024-10-16T16:26:18.942825Z"
+}

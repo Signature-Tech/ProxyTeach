@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_csb9dv42vvgao6unf140",
+    "operations": [
+      {
+        "drop_table": {
+          "name": "Zawad"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_csb9dv42vvgao6unf140",
+  "parent": "mig_cs9v3k4jvfnl258s62kg",
+  "schema": "public",
+  "startedAt": "2024-10-21T18:01:33.441522Z"
+}

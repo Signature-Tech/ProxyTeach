@@ -1,0 +1,21 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs3uvvq2go8te7ad4up0",
+    "operations": [
+      {
+        "drop_constraint": {
+          "up": "\"sub_name\"",
+          "down": "\"sub_name\"",
+          "name": "subject__pgroll_new_name_key",
+          "table": "subject"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs3uvvq2go8te7ad4up0",
+  "parent": "mig_cs3uu1t4rshpd1p6dl60",
+  "schema": "public",
+  "startedAt": "2024-10-10T15:17:20.26216Z"
+}

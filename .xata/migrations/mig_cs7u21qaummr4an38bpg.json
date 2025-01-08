@@ -1,0 +1,32 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs7u21qaummr4an38bpg",
+    "operations": [
+      {
+        "add_column": {
+          "table": "Rahil",
+          "column": {
+            "pk": false,
+            "name": "teach_id",
+            "type": "text",
+            "unique": false,
+            "comment": "{\"xata.link\":\"teachers\"}",
+            "nullable": true,
+            "references": {
+              "name": "teach_id_link",
+              "table": "teachers",
+              "column": "teach_id",
+              "on_delete": "SET NULL"
+            }
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs7u21qaummr4an38bpg",
+  "parent": "mig_cs7u1qaaummr4an38bog",
+  "schema": "public",
+  "startedAt": "2024-10-16T15:51:35.840099Z"
+}

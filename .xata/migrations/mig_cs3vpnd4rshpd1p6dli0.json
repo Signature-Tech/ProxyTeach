@@ -1,0 +1,18 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs3vpnd4rshpd1p6dli0",
+    "operations": [
+      {
+        "sql": {
+          "up": "COMMENT ON COLUMN \"week\".\"subjects\" IS '{\"xata.link\":\"subjects\"}'"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs3vpnd4rshpd1p6dli0",
+  "parent": "mig_cs3vpmrujno0fvdn3k0g",
+  "schema": "public",
+  "startedAt": "2024-10-10T16:12:13.436868Z"
+}

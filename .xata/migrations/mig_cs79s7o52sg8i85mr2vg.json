@@ -1,0 +1,27 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs79s7o52sg8i85mr2vg",
+    "operations": [
+      {
+        "add_column": {
+          "up": "''",
+          "table": "Tiaaf",
+          "column": {
+            "pk": false,
+            "name": "day",
+            "type": "text",
+            "unique": false,
+            "comment": "",
+            "nullable": false
+          }
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs79s7o52sg8i85mr2vg",
+  "parent": "mig_cs79s12u8anorsmgfil0",
+  "schema": "public",
+  "startedAt": "2024-10-15T16:53:51.726374Z"
+}

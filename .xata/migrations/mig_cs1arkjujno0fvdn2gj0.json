@@ -1,0 +1,20 @@
+{
+  "done": true,
+  "migration": {
+    "name": "mig_cs1arkjujno0fvdn2gj0",
+    "operations": [
+      {
+        "drop_column": {
+          "down": "''",
+          "table": "classes",
+          "column": "day"
+        }
+      }
+    ]
+  },
+  "migrationType": "pgroll",
+  "name": "mig_cs1arkjujno0fvdn2gj0",
+  "parent": "mig_cs1aqki2go8te7ad4530",
+  "schema": "public",
+  "startedAt": "2024-10-06T15:33:39.016228Z"
+}
